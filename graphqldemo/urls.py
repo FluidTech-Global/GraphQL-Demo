@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
 
@@ -28,4 +29,5 @@ urlpatterns = [
             schema=api_schema
         )
     )),
+    path("", include("library.urls"))
 ]
